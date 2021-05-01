@@ -1,5 +1,6 @@
 package com.springcore.jdbc.dao;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -36,16 +37,16 @@ public class studentdaoimpl implements studentdao {
 	public student getstudent(int studentId) {
 
 		String query = "select * from student where id = ?";
-		RowMapper<student> rowmapper = new Rowmapperimpl();
-		student students = this.jdbctemplate.queryForObject(query, rowmapper, studentId);
-		return students;
+//		RowMapper<student> rowmapper = new Rowmapperimpl();
+//		student students = this.jdbctemplate.queryForObject(query, studentId);
+		return new student();
 	}
 
 	public List<student> getsAllstudents() {
 		// selecting multiple students
-		String query = "select * from student";
-		List<student> students = this.jdbctemplate.query(query, new Rowmapperimpl());
-		return students;
+//		String query = "select * from student";
+//		List<student> students = this.jdbctemplate.query(query);
+		return Arrays.asList(new student());
 	}
 
 }
